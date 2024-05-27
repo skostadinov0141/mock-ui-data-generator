@@ -1,19 +1,19 @@
-import {Command} from "commander";
+import { Command } from "commander";
 const program = new Command();
 
 program
-    .name('string-util')
-    .description('CLI to some JavaScript string utilities')
-    .version('0.8.0');
+    .name('ui-data-generator')
+    .description('Creates mock data simulating user interface interactions')
+    .version('0.0.1');
 
-program.command('split')
-    .description('Split a string into substrings and display as an array')
-    .argument('<string>', 'string to split')
-    .option('--first', 'display just the first substring')
-    .option('-s, --separator <char>', 'separator character', ',')
-    .action((str, options) => {
-        const limit = options.first ? 1 : undefined;
-        console.log(str.split(options.separator, limit));
+program
+    .command("add")
+    .description('Add a new UI element to generate data for')
+    .requiredOption('-n, --name <name>', 'Name of the UI element')
+    .argument('<type>', 'Type of UI element to generate data for')
+    .action((type: string, options) => {
+        console.log(`Adding new UI element: ${type}`);
+        console.log(`Name: ${options.name}`);
     });
 
 program.parse();
