@@ -1,5 +1,5 @@
 export class Button {
-    id: string;
+    id: number;
     width: number;
     height: number;
     label: string;
@@ -7,27 +7,28 @@ export class Button {
     collection: string;
     averageClicksPerDay: number;
     averageTimeToLeaveAfterClick: number;
+    averageLoadTime: number;
 
     constructor({
-        id,
         width,
         height,
         label,
         tags,
         collection,
         averageClicksPerDay,
-        averageTimeToLeaveAfterClick
+        averageTimeToLeaveAfterClick,
+        averageLoadTime
     }:{
-        id?: string,
         width?: number | string
         height?: number | string,
         label?: string,
         tags?: string,
         collection?: string,
         averageClicksPerDay?: number,
-        averageTimeToLeaveAfterClick?: number
+        averageTimeToLeaveAfterClick?: number,
+        averageLoadTime?: number
     }){
-        this.id = id || Math.random().toString(36).substring(7);
+        this.id = Math.floor(Math.random() * 1000000);
         if (!width)
             this.width = 100;
         else
@@ -44,6 +45,7 @@ export class Button {
         this.collection = collection || 'default';
         this.averageClicksPerDay = this.generateClicksPerDay(averageClicksPerDay == 0 || averageClicksPerDay == undefined ? 1 : averageClicksPerDay);
         this.averageTimeToLeaveAfterClick = this.generateTimeToLeaveAfterClick(averageTimeToLeaveAfterClick == 0 || averageTimeToLeaveAfterClick == undefined ? 1 : averageTimeToLeaveAfterClick);
+        this.averageLoadTime = this.generateAverageLoadTime(averageLoadTime == 0 || averageLoadTime == undefined ? 1 : averageLoadTime);
     }
 
     render(){
@@ -62,6 +64,10 @@ export class Button {
         return Math.floor(Math.random() * (1000 * level));
     }
 
+    generateAverageLoadTime(level: number){
+        return Math.floor(Math.random() * (1000 * level));
+    }
+
     toJSON(){
         return {
             id: this.id,
@@ -71,7 +77,9 @@ export class Button {
             tags: this.tags,
             collection: this.collection,
             averageClicksPerDay: this.averageClicksPerDay,
-            averageTimeToLeaveAfterClick: this.averageTimeToLeaveAfterClick
+            averageTimeToLeaveAfterClick: this.averageTimeToLeaveAfterClick,
+            averageLoadTime: this.averageLoadTime,
+            type: 'button'
         };
     }
 }
