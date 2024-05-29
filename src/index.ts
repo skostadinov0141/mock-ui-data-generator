@@ -57,7 +57,7 @@ program.parse();
 
 function saveDataToFile(plain:any, filePath:string): boolean{
     // Attempt to load the file first
-    let data: any[] = [];
+    let data: any[];
     try {
         data = JSON.parse(fs.readFileSync(filePath).toString());
     } catch (error) {
