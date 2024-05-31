@@ -1,6 +1,7 @@
 import { UIElement } from "./ui-element";
 
 export class InputField implements UIElement {
+  id: number;
   label: string;
   placeholder: string; // add to options in index.ts
   width: number;
@@ -47,6 +48,7 @@ export class InputField implements UIElement {
     fontSize?: number;
     form?: boolean;
   }) {
+    this.id = Math.floor(Math.random() * 100000);
     this.label = label || "Input Field";
     this.placeholder = placeholder || "";
     if (!width) this.width = 200;
@@ -60,12 +62,9 @@ export class InputField implements UIElement {
     this.validationTime = validationTime || 0;
     this.validationType = validationType || "none";
     this.criticalInformation = criticalInformation || false;
-    if (averageTimeToFill)
-      this.averageTimeToFill = this.generateTimeToFill(averageTimeToFill);
+    if (averageTimeToFill) this.averageTimeToFill = this.generateTimeToFill(averageTimeToFill);
     else this.averageTimeToFill = this.generateTimeToFill(20);
-    if (averageTimeToCorrect)
-      this.averageTimeToCorrect =
-        this.generateTimeToCorrect(averageTimeToCorrect);
+    if (averageTimeToCorrect) this.averageTimeToCorrect = this.generateTimeToCorrect(averageTimeToCorrect);
     else this.averageTimeToCorrect = this.generateTimeToCorrect(20);
     this.fontSize = fontSize || 14;
     this.form = form || false;
@@ -87,6 +86,7 @@ export class InputField implements UIElement {
 
   toJSON() {
     return {
+      id: this.id,
       label: this.label,
       placeholder: this.placeholder,
       width: this.width,

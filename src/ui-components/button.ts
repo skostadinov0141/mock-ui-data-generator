@@ -39,22 +39,9 @@ export class Button implements UIElement {
     if (tags && tags.length > 0) this.tags = tags.split(",");
     else this.tags = [];
     this.group = group || "default";
-    this.averageClicksPerDay = this.generateClicksPerDay(
-      averageClicksPerDay == 0 || averageClicksPerDay == undefined
-        ? 1
-        : averageClicksPerDay,
-    );
-    this.averageTimeToLeaveAfterClick = this.generateTimeToLeaveAfterClick(
-      averageTimeToLeaveAfterClick == 0 ||
-        averageTimeToLeaveAfterClick == undefined
-        ? 1
-        : averageTimeToLeaveAfterClick,
-    );
-    this.averageLoadTime = this.generateAverageLoadTime(
-      averageLoadTime == 0 || averageLoadTime == undefined
-        ? 1
-        : averageLoadTime,
-    );
+    this.averageClicksPerDay = this.generateClicksPerDay(averageClicksPerDay == 0 || averageClicksPerDay == undefined ? 1 : averageClicksPerDay);
+    this.averageTimeToLeaveAfterClick = this.generateTimeToLeaveAfterClick(averageTimeToLeaveAfterClick == 0 || averageTimeToLeaveAfterClick == undefined ? 1 : averageTimeToLeaveAfterClick);
+    this.averageLoadTime = this.generateAverageLoadTime(averageLoadTime == 0 || averageLoadTime == undefined ? 1 : averageLoadTime);
   }
 
   render() {
