@@ -2,19 +2,19 @@ import { UIElement } from "./ui-element";
 
 export class InputField implements UIElement {
   label: string;
-  placeholder: string;
+  placeholder: string; // add to options in index.ts
   width: number;
   height: number;
   tags: string[];
   group: string;
-  optional: boolean;
-  validationTime: number;
-  validationType: "api" | "none" | "local";
-  criticalInformation: boolean;
-  averageTimeToFill: number;
-  averageTimeToCorrect: number;
-  fontSize: number;
-  form: boolean;
+  optional: boolean; // add to options in index.ts
+  validationTime: number; // add to options in index.ts
+  validationType: "api" | "none" | "local"; // add to options in index.ts
+  criticalInformation: boolean; // add to options in index.ts
+  averageTimeToFill: number; // add to options in index.ts
+  averageTimeToCorrect: number; // add to options in index.ts
+  fontSize: number; // add to options in index.ts
+  form: boolean; // add to options in index.ts
 
   constructor({
     label,
