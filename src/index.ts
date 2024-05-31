@@ -21,7 +21,7 @@ program
   .option("-ac,    --averageClicksPerDay <averageClicksPerDay>", "The level of average clicks per day for the UI element (higher is more clicks)")
   .option("-ttl,   --averageTimeToLeaveAfterClick <averageTimeToLeaveAfterClick>", "The average time to leave after clicking the UI element (higher is longer)")
   .option("-alt,   --averageLoadTime <averageLoadTime>", "The average load time of the UI element (higher is longer)")
-  .action((options, command) => {
+  .action((options, _command) => {
     console.log("Creating a button...");
     const button = new Button({
       width: options.width,
@@ -62,7 +62,7 @@ program
   .option("-atc,   --averageTimeToCorrect <averageTimeToCorrect>", "The average time to correct the UI element")
   .option("-fs,    --fontSize <fontSize>", "The font size of the UI element")
   .option("-f,     --form", "Whether the UI element is part of a form")
-  .action((options, command) => {
+  .action((options, _command) => {
     console.log("Creating a input-field...");
     const inputField = new InputField({
       label: options.label,
