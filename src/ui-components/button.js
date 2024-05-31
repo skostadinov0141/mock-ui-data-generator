@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Button = void 0;
 var Button = /** @class */ (function () {
     function Button(_a) {
-        var width = _a.width, height = _a.height, label = _a.label, tags = _a.tags, collection = _a.collection, averageClicksPerDay = _a.averageClicksPerDay, averageTimeToLeaveAfterClick = _a.averageTimeToLeaveAfterClick, averageLoadTime = _a.averageLoadTime;
+        var width = _a.width, height = _a.height, label = _a.label, tags = _a.tags, group = _a.group, averageClicksPerDay = _a.averageClicksPerDay, averageTimeToLeaveAfterClick = _a.averageTimeToLeaveAfterClick, averageLoadTime = _a.averageLoadTime;
         this.id = Math.floor(Math.random() * 1000000);
         if (!width)
             this.width = 100;
@@ -13,15 +13,22 @@ var Button = /** @class */ (function () {
             this.height = 50;
         else
             this.height = parseInt(height.toString());
-        this.label = label || 'Button';
+        this.label = label || "Button";
         if (tags && tags.length > 0)
-            this.tags = tags.split(',');
+            this.tags = tags.split(",");
         else
             this.tags = [];
-        this.collection = collection || 'default';
-        this.averageClicksPerDay = this.generateClicksPerDay(averageClicksPerDay == 0 || averageClicksPerDay == undefined ? 1 : averageClicksPerDay);
-        this.averageTimeToLeaveAfterClick = this.generateTimeToLeaveAfterClick(averageTimeToLeaveAfterClick == 0 || averageTimeToLeaveAfterClick == undefined ? 1 : averageTimeToLeaveAfterClick);
-        this.averageLoadTime = this.generateAverageLoadTime(averageLoadTime == 0 || averageLoadTime == undefined ? 1 : averageLoadTime);
+        this.group = group || "default";
+        this.averageClicksPerDay = this.generateClicksPerDay(averageClicksPerDay == 0 || averageClicksPerDay == undefined
+            ? 1
+            : averageClicksPerDay);
+        this.averageTimeToLeaveAfterClick = this.generateTimeToLeaveAfterClick(averageTimeToLeaveAfterClick == 0 ||
+            averageTimeToLeaveAfterClick == undefined
+            ? 1
+            : averageTimeToLeaveAfterClick);
+        this.averageLoadTime = this.generateAverageLoadTime(averageLoadTime == 0 || averageLoadTime == undefined
+            ? 1
+            : averageLoadTime);
     }
     Button.prototype.render = function () {
         console.log("\n            <button id=\"".concat(this.id, "\" style=\"width: ").concat(this.width, "px; height: ").concat(this.height, "px;\">\n                ").concat(this.label, "\n            </button>\n        "));
@@ -42,11 +49,11 @@ var Button = /** @class */ (function () {
             height: this.height,
             label: this.label,
             tags: this.tags,
-            collection: this.collection,
+            collection: this.group,
             averageClicksPerDay: this.averageClicksPerDay,
             averageTimeToLeaveAfterClick: this.averageTimeToLeaveAfterClick,
             averageLoadTime: this.averageLoadTime,
-            type: 'button'
+            type: "button",
         };
     };
     return Button;
