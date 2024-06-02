@@ -30,7 +30,7 @@ export class Button implements UIElement {
     averageTimeToLeaveAfterClick?: number;
     averageLoadTime?: number;
   }) {
-    this.id = Math.floor(Math.random() * 1000000);
+    this.id = Math.floor(Math.random() * 100000);
     if (!width) this.width = 100;
     else this.width = parseInt(width.toString());
     if (!height) this.height = 50;

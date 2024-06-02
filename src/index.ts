@@ -34,7 +34,11 @@ program
       averageLoadTime: options.averageLoadTime,
     });
     if (options.save) {
-      saveDataToFile(button, options.save);
+      if (typeof options.result == "string") {
+        saveDataToFile(button, options.save);
+      }else{
+        saveDataToFile(button, "result.json");
+      }
     }
     if (options.output) {
       // Output the data to the console
@@ -46,7 +50,7 @@ program
 program
   .command("input-field")
   .description("Create a input-field UI element")
-  .option("-S,     --save <filePath>", "Append the generated data to a file")
+  .option("-S,     --save [filePath]", "Append the generated data to a file")
   .option("-o,     --output", "Output the generated data to the console")
   .option("-l,     --label <label>", "Label of the UI element")
   .option("-p,     --placeholder <placeholder>", "Placeholder of the UI element")
@@ -81,7 +85,11 @@ program
       form: options.form,
     });
     if (options.save) {
-      saveDataToFile(inputField, options.save);
+      if (typeof options.result == "string") {
+        saveDataToFile(inputField, options.save);
+      }else{
+        saveDataToFile(inputField, "result.json");
+      }
     }
     if (options.output) {
       // Output the data to the console
@@ -96,12 +104,14 @@ function saveDataToFile(plain: any, filePath: string): boolean {
   // Attempt to load the file first
   let data: any[];
   try {
+    console.log(`Loading data from file: ${filePath}`);
     data = JSON.parse(fs.readFileSync(filePath).toString());
   } catch (error) {
+    console.log("No data found in file. Creating a new file.");
     data = [];
   }
   // Save the data to a file
-  console.log("Saving data to file...");
+  console.log(`Saving data to file: ${filePath}`);
   data.push(plain.toJSON());
   try {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
