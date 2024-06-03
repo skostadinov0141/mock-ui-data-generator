@@ -98,6 +98,20 @@ program
     }
   });
 
+program
+  .command("clear")
+  .description("Clear the data in a file")
+  .argument("[filePath]", "The file to clear", "result.json")
+  .action((filePath, _command) => {
+    console.log(`Clearing data in file: ${filePath}`);
+    try {
+      fs.writeFileSync(filePath, "[]");
+      console.log("Data cleared in file.");
+    } catch (error) {
+      console.error("Error clearing data in file");
+    }
+  });
+
 program.parse(process.argv);
 
 function saveDataToFile(plain: any, filePath: string): boolean {

@@ -1,0 +1,75 @@
+[
+  {
+    "id": 80124,
+    "width": 20,
+    "height": 50,
+    "label": "Dashboard",
+    "tags": [
+      "navigation",
+      "menu",
+      "sidebar",
+      "link",
+      "important"
+    ],
+    "collection": "navigation",
+    "averageClicksPerDay": 5650,
+    "averageTimeToLeaveAfterClick": 11742,
+    "averageLoadTime": 8412,
+    "type": "button"
+  },
+  {
+    "id": 20616,
+    "width": 80,
+    "height": 40,
+    "label": "Anmelden",
+    "tags": [
+      "navigation",
+      "menu",
+      "sidebar",
+      "link",
+      "important",
+      "cta"
+    ],
+    "collection": "navigation",
+    "averageClicksPerDay": 71663,
+    "averageTimeToLeaveAfterClick": 1213,
+    "averageLoadTime": 5208,
+    "type": "button"
+  },
+  {
+    "id": 2458,
+    "width": 80,
+    "height": 40,
+    "label": "Aktien",
+    "tags": [
+      "navigation",
+      "menu",
+      "sidebar",
+      "link",
+      "important"
+    ],
+    "collection": "navigation",
+    "averageClicksPerDay": 47437,
+    "averageTimeToLeaveAfterClick": 459831,
+    "averageLoadTime": 1392,
+    "type": "button"
+  },
+  {
+    "id": 1509,
+    "width": 20,
+    "height": 20,
+    "label": "Portfolio",
+    "tags": [
+      "navigation",
+      "menu",
+      "sidebar",
+      "link",
+      "important"
+    ],
+    "collection": "navigation",
+    "averageClicksPerDay": 256854,
+    "averageTimeToLeaveAfterClick": 94,
+    "averageLoadTime": 13178,
+    "type": "button"
+  }
+]
